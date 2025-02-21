@@ -1,0 +1,25 @@
+﻿@model List<es_sett14.Models.Prodotto>
+
+@{
+    ViewData["Title"] = "Vetrina Scarpe";
+}
+
+<div class="container">
+    <h1>Vetrina Scarpe</h1>
+    <div class="row">
+        @foreach (var prodotto in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="~/images/@prodotto.ImmagineCopertina" class="card-img-top" alt="@prodotto.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">@prodotto.Name</h5>
+                        <p class="card-text">@prodotto.Prezzo.ToString("euro")</p>
+                        <p class="card-text">@prodotto.Description</p>
+                        <a href="@Url.Action("Dettaglio", new { id = prodotto.Id })" class="btn btn-primary">Dettagli</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
